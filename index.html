@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Richy Zheng's personal portfolio website showcasing projects, skills, and contact information."
+      content="Richy Zheng personal portfolio website showcasing projects, skills, and contact details."
     />
     <title>Richy Zheng | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,62 +16,50 @@
     />
     <style>
       :root {
-        --bg: #f5f7fb;
-        --panel: rgba(255, 255, 255, 0.8);
+        --bg: #f4f7fb;
+        --bg-2: #edf2ff;
+        --panel: rgba(255, 255, 255, 0.72);
         --panel-strong: #ffffff;
-        --text: #1c2434;
-        --muted: #58657a;
+        --text: #101828;
+        --muted: #52607a;
         --primary: #4f46e5;
-        --primary-strong: #3730a3;
-        --accent: #14b8a6;
-        --border: rgba(88, 101, 122, 0.12);
-        --shadow: 0 25px 60px rgba(31, 41, 55, 0.12);
+        --primary-dark: #312e81;
+        --accent: #22c55e;
+        --line: rgba(15, 23, 42, 0.08);
+        --shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
       }
 
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
       body {
         margin: 0;
         font-family: "Inter", sans-serif;
         background:
-          radial-gradient(circle at top left, rgba(79, 70, 229, 0.12), transparent 30%),
-          linear-gradient(180deg, #f8faff 0%, #eef3ff 100%);
+          radial-gradient(circle at top left, rgba(79, 70, 229, 0.12), transparent 28%),
+          linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
         color: var(--text);
         line-height: 1.6;
       }
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      img {
-        max-width: 100%;
-        display: block;
-      }
+      a { color: inherit; text-decoration: none; }
+      img { display: block; max-width: 100%; }
 
       .container {
-        width: min(1120px, calc(100% - 2rem));
+        width: min(1100px, calc(100% - 2rem));
         margin: 0 auto;
       }
 
-      .site-header {
+      .topbar {
         position: sticky;
         top: 0;
         z-index: 10;
-        backdrop-filter: blur(14px);
-        background: rgba(248, 250, 255, 0.75);
-        border-bottom: 1px solid rgba(88, 101, 122, 0.08);
+        backdrop-filter: blur(16px);
+        background: rgba(244, 247, 251, 0.7);
+        border-bottom: 1px solid var(--line);
       }
 
       .nav {
-        width: min(1120px, calc(100% - 2rem));
+        width: min(1100px, calc(100% - 2rem));
         margin: 0 auto;
         display: flex;
         align-items: center;
@@ -81,38 +69,28 @@
 
       .brand {
         font-weight: 800;
-        letter-spacing: -0.04em;
-        font-size: 1.2rem;
+        font-size: 1.15rem;
+        letter-spacing: -0.05em;
       }
 
-      .brand span {
-        color: var(--primary);
-      }
+      .brand span { color: var(--primary); }
 
       .nav-links {
         display: flex;
-        gap: 1.5rem;
         align-items: center;
+        gap: 1.5rem;
         color: var(--muted);
-        font-size: 0.96rem;
+        font-size: 0.95rem;
       }
 
-      .nav-links a:hover {
-        color: var(--text);
-      }
+      .nav-links a:hover { color: var(--text); }
 
       .nav-cta {
-        background: var(--text);
-        color: white;
-        padding: 0.68rem 1rem;
+        padding: 0.7rem 1.1rem;
         border-radius: 999px;
+        background: #111827;
+        color: white;
         font-weight: 600;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .nav-cta:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 12px 25px rgba(28, 36, 52, 0.18);
       }
 
       .hero {
@@ -120,45 +98,43 @@
         grid-template-columns: 1.2fr 0.8fr;
         gap: 2.5rem;
         align-items: center;
-        padding: 5rem 0 4rem;
+        padding: 5rem 0 3rem;
       }
 
       .eyebrow {
         display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.38rem 0.8rem;
+        padding: 0.5rem 0.9rem;
         border-radius: 999px;
         background: rgba(79, 70, 229, 0.1);
-        color: var(--primary-strong);
+        color: var(--primary-dark);
+        font-size: 0.76rem;
         font-weight: 700;
-        font-size: 0.8rem;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
       }
 
-      .hero h1 {
-        margin: 1rem 0 0.5rem;
-        font-size: clamp(2.7rem, 5vw, 5rem);
-        line-height: 0.95;
-        letter-spacing: -0.06em;
+      h1 {
+        margin: 1rem 0 0.8rem;
+        font-size: clamp(2.9rem, 6vw, 5.2rem);
+        line-height: 0.94;
+        letter-spacing: -0.07em;
       }
 
-      .hero h2 {
+      .lead {
         margin: 0;
-        font-size: clamp(1.3rem, 2vw, 2rem);
         color: var(--muted);
-        font-weight: 600;
+        font-size: clamp(1.05rem, 2vw, 1.35rem);
+        font-weight: 500;
       }
 
-      .hero p {
-        margin: 1.5rem 0;
-        color: var(--muted);
+      .intro {
+        margin: 1.2rem 0 0;
         max-width: 60ch;
+        color: var(--muted);
         font-size: 1.05rem;
       }
 
-      .button-row {
+      .cta-row {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
@@ -169,8 +145,8 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        border-radius: 999px;
         padding: 0.9rem 1.4rem;
+        border-radius: 999px;
         font-weight: 700;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
@@ -179,223 +155,212 @@
         transform: translateY(-2px);
       }
 
-      .btn.primary {
-        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
         color: #fff;
-        box-shadow: 0 18px 30px rgba(79, 70, 229, 0.25);
+        box-shadow: 0 18px 30px rgba(79, 70, 229, 0.2);
       }
 
-      .btn.secondary {
-        background: rgba(255, 255, 255, 0.62);
-        border: 1px solid var(--border);
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid var(--line);
         color: var(--text);
       }
 
-      .mini-stats {
+      .stats {
         list-style: none;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1.2rem;
         padding: 0;
         margin: 2rem 0 0;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
       }
 
-      .mini-stats li {
-        background: rgba(255, 255, 255, 0.55);
-        border: 1px solid var(--border);
-        border-radius: 18px;
-        padding: 0.9rem 1rem;
+      .stats li {
         min-width: 140px;
+        padding: 1rem 1rem 0.8rem;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.68);
+        border: 1px solid var(--line);
       }
 
-      .mini-stats strong {
+      .stats strong {
         display: block;
-        font-size: 1.15rem;
+        font-size: 1.2rem;
+        letter-spacing: -0.05em;
       }
 
-      .mini-stats span {
+      .stats span {
         color: var(--muted);
-        font-size: 0.82rem;
+        font-size: 0.8rem;
       }
 
-      .hero-card {
+      .profile-card {
+        padding: 1.5rem;
+        border-radius: 30px;
         background: rgba(255, 255, 255, 0.7);
         border: 1px solid rgba(17, 24, 39, 0.06);
-        border-radius: 30px;
         box-shadow: var(--shadow);
-        padding: 1.5rem;
       }
 
       .badge {
         display: inline-flex;
-        padding: 0.5rem 0.8rem;
+        padding: 0.45rem 0.7rem;
+        background: rgba(34,197,94,0.12);
+        color: #15803d;
         border-radius: 999px;
-        background: rgba(20, 184, 166, 0.12);
-        color: #0f766e;
+        font-size: 0.72rem;
         font-weight: 700;
-        font-size: 0.74rem;
       }
 
       .avatar {
-        width: 120px;
-        height: 120px;
+        width: 124px;
+        height: 124px;
         display: grid;
         place-items: center;
+        margin: 1.2rem 0 1rem;
         border-radius: 28px;
-        margin: 1.5rem 0 1.2rem;
-        font-size: 2.5rem;
+        font-size: 2.7rem;
         font-weight: 800;
         letter-spacing: -0.08em;
-        background: linear-gradient(135deg, rgba(79, 70, 229, 0.15), rgba(20, 184, 166, 0.15));
-        color: var(--primary-strong);
+        color: var(--primary-dark);
+        background: linear-gradient(135deg, rgba(79,70,229,0.14), rgba(34,197,94,0.12));
       }
 
-      .card-grid {
+      .mini-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1rem;
       }
 
-      .card-grid div {
-        background: rgba(245, 247, 251, 0.9);
-        border: 1px solid rgba(88, 101, 122, 0.08);
-        border-radius: 18px;
+      .mini-grid div {
         padding: 1rem;
+        border-radius: 16px;
+        background: rgba(244,247,251,0.9);
+        border: 1px solid rgba(15,23,42,0.05);
       }
 
-      .card-grid span {
+      .mini-grid span {
         display: block;
-        color: var(--muted);
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
         margin-bottom: 0.35rem;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
-      .card-grid strong {
-        font-size: 1rem;
+      section { padding: 2rem 0; }
+
+      .section-title {
+        margin: 0 0 0.4rem;
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        letter-spacing: -0.06em;
       }
 
-      section {
-        padding: 2rem 0;
-      }
-
-      .section-header {
-        margin-bottom: 1.5rem;
-      }
-
-      .section-header p {
-        margin: 0.4rem 0 0;
+      .section-subtitle {
+        margin: 0;
         color: var(--muted);
       }
 
-      .section-header h3 {
-        margin: 0;
-        font-size: clamp(1.8rem, 3vw, 2.5rem);
-        letter-spacing: -0.05em;
-      }
-
-      .two-col {
+      .about-wrap {
         display: grid;
         grid-template-columns: 1.2fr 0.8fr;
         gap: 1.5rem;
-        align-items: stretch;
+        margin-top: 1.5rem;
       }
 
-      .about-panel,
-      .info-panel,
-      .project-card,
-      .cta-box {
-        background: rgba(255, 255, 255, 0.7);
-        border: 1px solid rgba(88, 101, 122, 0.08);
+      .card {
+        background: rgba(255,255,255,0.74);
+        border: 1px solid var(--line);
         border-radius: 24px;
         box-shadow: 0 20px 40px rgba(15, 23, 42, 0.04);
       }
 
-      .about-panel {
+      .card.about {
         padding: 2rem;
       }
 
-      .about-panel p,
-      .info-panel li {
+      .card.about p {
         color: var(--muted);
+        margin: 0 0 1rem;
       }
 
-      .info-panel {
-        padding: 1.5rem 1.5rem 1rem;
+      .card.about p:last-child { margin-bottom: 0; }
+
+      .card.side {
+        padding: 1.4rem 1.4rem 0.7rem;
       }
 
-      .info-panel ul {
+      .detail-list {
         list-style: none;
-        margin: 0;
         padding: 0;
+        margin: 0;
       }
 
-      .info-panel li {
+      .detail-list li {
         display: flex;
         justify-content: space-between;
         gap: 1rem;
         padding: 0.9rem 0;
-        border-bottom: 1px solid rgba(88, 101, 122, 0.08);
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
       }
 
-      .info-panel li:last-child {
-        border-bottom: none;
-      }
+      .detail-list li:last-child { border-bottom: none; }
 
-      .info-panel strong {
-        color: var(--text);
-      }
+      .detail-list strong { color: var(--text); }
 
-      .chip-list {
+      .chips {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.85rem;
-        margin-top: 1.25rem;
+        gap: 0.8rem;
+        margin-top: 1.6rem;
       }
 
-      .chip-list span {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.7rem 1rem;
+      .chips span {
+        padding: 0.72rem 1rem;
         border-radius: 999px;
-        background: rgba(79, 70, 229, 0.08);
-        border: 1px solid rgba(79, 70, 229, 0.08);
-        color: var(--primary-strong);
+        background: rgba(79,70,229,0.08);
+        color: var(--primary-dark);
+        border: 1px solid rgba(79,70,229,0.08);
         font-weight: 600;
       }
 
-      .projects-grid {
+      .projects {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1.5rem;
+        gap: 1.4rem;
+        margin-top: 1.6rem;
       }
 
       .project-card {
         padding: 1.5rem;
+        background: rgba(255,255,255,0.74);
+        border: 1px solid var(--line);
+        border-radius: 24px;
       }
 
-      .project-tag {
-        display: inline-block;
-        padding: 0.45rem 0.7rem;
+      .tag {
+        display: inline-flex;
+        padding: 0.42rem 0.7rem;
         border-radius: 999px;
-        background: rgba(20, 184, 166, 0.12);
-        color: #0f766e;
         font-size: 0.72rem;
         font-weight: 700;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.06em;
         text-transform: uppercase;
+        background: rgba(34,197,94,0.12);
+        color: #166534;
       }
 
-      .project-card h4 {
-        margin: 1rem 0 0.75rem;
-        font-size: 1.35rem;
-        letter-spacing: -0.04em;
+      .project-card h3 {
+        margin: 1rem 0 0.7rem;
+        font-size: 1.5rem;
+        letter-spacing: -0.05em;
       }
 
       .project-card p {
-        margin: 0 0 1.2rem;
+        margin: 0 0 1rem;
         color: var(--muted);
       }
 
@@ -404,17 +369,19 @@
         font-weight: 700;
       }
 
-      .cta-box {
+      .cta-panel {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
         padding: 2rem;
         margin: 2rem 0 4rem;
-        background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(20, 184, 166, 0.08));
+        border-radius: 28px;
+        background: linear-gradient(135deg, rgba(79,70,229,0.08), rgba(34,197,94,0.08));
+        border: 1px solid var(--line);
       }
 
-      .cta-box h3 {
+      .cta-panel h2 {
         margin: 0;
         font-size: clamp(1.5rem, 3vw, 2.2rem);
         letter-spacing: -0.05em;
@@ -428,46 +395,33 @@
 
       @media (max-width: 860px) {
         .hero,
-        .two-col,
-        .projects-grid {
+        .about-wrap,
+        .projects {
           grid-template-columns: 1fr;
         }
 
         .nav {
           flex-wrap: wrap;
           justify-content: center;
-          gap: 0.75rem 1rem;
+          gap: 0.7rem 1rem;
         }
 
         .nav-links {
           flex-wrap: wrap;
           justify-content: center;
         }
-
-        .cta-box {
-          flex-direction: column;
-          align-items: flex-start;
-        }
       }
 
-      @media (max-width: 520px) {
-        .hero {
-          padding-top: 4rem;
-        }
-
-        .button-row,
-        .mini-stats {
-          flex-direction: column;
-        }
-
-        .btn {
-          width: 100%;
-        }
+      @media (max-width: 560px) {
+        .hero { padding-top: 4rem; }
+        .cta-row, .stats { flex-direction: column; }
+        .btn { width: 100%; }
+        .cta-panel { flex-direction: column; align-items: flex-start; }
       }
     </style>
   </head>
   <body>
-    <header class="site-header">
+    <header class="topbar">
       <nav class="nav" aria-label="Main navigation">
         <a href="#home" class="brand">Richy <span>Zheng</span></a>
         <div class="nav-links">
@@ -482,28 +436,28 @@
     <main class="container">
       <section id="home" class="hero">
         <div>
-          <div class="eyebrow">Hello, I'm</div>
+          <div class="eyebrow">Portfolio</div>
           <h1>Richy Zheng</h1>
-          <h2>Building thoughtful digital experiences.</h2>
-          <p>
-            I create clean, user-focused web experiences that combine design,
-            functionality, and performance. I enjoy turning ideas into polished,
-            accessible products that people genuinely enjoy using.
+          <p class="lead">Creative developer crafting elegant digital experiences.</p>
+          <p class="intro">
+            I build modern, user-focused websites that combine clean design,
+            thoughtful structure, and smooth interactions. My goal is to turn ideas
+            into experiences people remember.
           </p>
 
-          <div class="button-row">
-            <a href="#projects" class="btn primary">View Projects</a>
-            <a href="#contact" class="btn secondary">Get in Touch</a>
+          <div class="cta-row">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-secondary">Let’s Talk</a>
           </div>
 
-          <ul class="mini-stats" aria-label="Quick stats">
+          <ul class="stats" aria-label="Quick stats">
             <li>
               <strong>2+</strong>
-              <span>Years building</span>
+              <span>Years learning</span>
             </li>
             <li>
               <strong>10+</strong>
-              <span>Projects shipped</span>
+              <span>Projects explored</span>
             </li>
             <li>
               <strong>100%</strong>
@@ -512,57 +466,53 @@
           </ul>
         </div>
 
-        <div class="hero-card" aria-label="Profile summary card">
+        <div class="profile-card" aria-label="Profile summary">
           <div class="badge">Available for work</div>
           <div class="avatar">RZ</div>
-          <div class="card-grid">
+          <div class="mini-grid">
             <div>
               <span>Focus</span>
               <strong>Web Design</strong>
             </div>
             <div>
-              <span>Specialty</span>
-              <strong>UI / UX</strong>
-            </div>
-            <div>
-              <span>Tools</span>
+              <span>Skills</span>
               <strong>HTML / CSS</strong>
             </div>
             <div>
-              <span>Mindset</span>
-              <strong>Detail-first</strong>
+              <span>Style</span>
+              <strong>Modern</strong>
+            </div>
+            <div>
+              <span>Approach</span>
+              <strong>Clean &amp; Clear</strong>
             </div>
           </div>
         </div>
       </section>
 
       <section id="about">
-        <div class="section-header">
-          <h3>About Me</h3>
-          <p>Turning ideas into meaningful online experiences.</p>
-        </div>
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Making ideas clear, practical, and visually engaging.</p>
 
-        <div class="two-col">
-          <div class="about-panel">
+        <div class="about-wrap">
+          <div class="card about">
             <p>
-              I’m passionate about crafting modern, high-impact web experiences
-              that are simple, elegant, and easy to use. My work blends design
-              thinking with practical implementation to build pages that feel
-              polished from the first glance to the final interaction.
+              I’m a web-focused creator passionate about building polished digital
+              experiences that feel easy to use and visually strong. I enjoy turning
+              simple ideas into refined, modern interfaces.
             </p>
             <p>
-              Whether I’m building a portfolio, a landing page, or a product
-              interface, I focus on clarity, responsiveness, and a strong visual
-              identity. I enjoy learning, iterating, and refining ideas until
-              they feel sharp and intentional.
+              My approach is grounded in clarity, responsiveness, and thoughtful design.
+              I care about details that improve how a website feels and communicates,
+              not just how it looks.
             </p>
           </div>
 
-          <aside class="info-panel" aria-label="Profile details">
-            <ul>
-              <li><span>Location</span><strong>Worldwide</strong></li>
-              <li><span>Role</span><strong>Frontend Developer</strong></li>
-              <li><span>Interests</span><strong>Design, Code, UX</strong></li>
+          <aside class="card side">
+            <ul class="detail-list">
+              <li><span>Location</span><strong>Remote</strong></li>
+              <li><span>Role</span><strong>Frontend</strong></li>
+              <li><span>Interests</span><strong>Design, UX, Code</strong></li>
               <li><span>Email</span><strong>hello@richyzheng.dev</strong></li>
             </ul>
           </aside>
@@ -570,12 +520,10 @@
       </section>
 
       <section id="skills">
-        <div class="section-header">
-          <h3>Skills</h3>
-          <p>Tools and strengths I bring to every project.</p>
-        </div>
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">Tools and strengths I bring to each project.</p>
 
-        <div class="chip-list" aria-label="Skill list">
+        <div class="chips" aria-label="Skill list">
           <span>HTML5</span>
           <span>CSS3</span>
           <span>JavaScript</span>
@@ -583,53 +531,48 @@
           <span>UI/UX</span>
           <span>Accessibility</span>
           <span>Branding</span>
-          <span>Performance Optimization</span>
+          <span>Performance</span>
         </div>
       </section>
 
       <section id="projects">
-        <div class="section-header">
-          <h3>Featured Projects</h3>
-          <p>Selected work designed to be practical, clean, and memorable.</p>
-        </div>
+        <h2 class="section-title">Featured Work</h2>
+        <p class="section-subtitle">Selected ideas designed to look clean and work smoothly.</p>
 
-        <div class="projects-grid">
+        <div class="projects">
           <article class="project-card">
-            <div class="project-tag">Portfolio</div>
-            <h4>Personal Brand Website</h4>
+            <div class="tag">Portfolio</div>
+            <h3>Personal Brand Website</h3>
             <p>
-              A polished personal site that focuses on clarity, strong typography,
-              and a professional first impression.
+              A refined personal site focused on clarity, strong typography, and a premium first impression.
             </p>
             <a href="#home">Learn more →</a>
           </article>
 
           <article class="project-card">
-            <div class="project-tag">Landing Page</div>
-            <h4>Product Launch</h4>
+            <div class="tag">Landing Page</div>
+            <h3>Launch Campaign</h3>
             <p>
-              Conversion-focused layout with crisp messaging, structured sections,
-              and responsive behavior across devices.
+              A polished marketing page built for conversion with structured sections and modern visual rhythm.
             </p>
             <a href="#contact">Discuss a project →</a>
           </article>
 
           <article class="project-card">
-            <div class="project-tag">Creative</div>
-            <h4>Visual Storytelling</h4>
+            <div class="tag">Creative</div>
+            <h3>Storytelling Design</h3>
             <p>
-              Thoughtful composition, layered design, and polished interactions
-              that elevate content and engagement.
+              Visual compositions that combine layout, narrative, and interaction to bring content to life.
             </p>
-            <a href="#about">Explore my approach →</a>
+            <a href="#about">See my approach →</a>
           </article>
         </div>
       </section>
 
       <section id="contact">
-        <div class="cta-box">
-          <h3>Let’s build something meaningful together.</h3>
-          <a href="mailto:hello@richyzheng.dev" class="btn primary">Email Me</a>
+        <div class="cta-panel">
+          <h2>Let’s build something meaningful together.</h2>
+          <a href="mailto:hello@richyzheng.dev" class="btn btn-primary">Email Me</a>
         </div>
       </section>
     </main>
