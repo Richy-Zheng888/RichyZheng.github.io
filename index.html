@@ -1,586 +1,1738 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Richy Zheng personal portfolio website showcasing projects, skills, and contact details."
-    />
-    <title>Richy Zheng | Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Name | AI & Computer Vision</title>
+
     <style>
-      :root {
-        --bg: #f4f7fb;
-        --bg-2: #edf2ff;
-        --panel: rgba(255, 255, 255, 0.72);
-        --panel-strong: #ffffff;
-        --text: #101828;
-        --muted: #52607a;
-        --primary: #4f46e5;
-        --primary-dark: #312e81;
-        --accent: #22c55e;
-        --line: rgba(15, 23, 42, 0.08);
-        --shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
-      }
-
-      * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
-      body {
-        margin: 0;
-        font-family: "Inter", sans-serif;
-        background:
-          radial-gradient(circle at top left, rgba(79, 70, 229, 0.12), transparent 28%),
-          linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
-        color: var(--text);
-        line-height: 1.6;
-      }
-
-      a { color: inherit; text-decoration: none; }
-      img { display: block; max-width: 100%; }
-
-      .container {
-        width: min(1100px, calc(100% - 2rem));
-        margin: 0 auto;
-      }
-
-      .topbar {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        backdrop-filter: blur(16px);
-        background: rgba(244, 247, 251, 0.7);
-        border-bottom: 1px solid var(--line);
-      }
-
-      .nav {
-        width: min(1100px, calc(100% - 2rem));
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem 0;
-      }
-
-      .brand {
-        font-weight: 800;
-        font-size: 1.15rem;
-        letter-spacing: -0.05em;
-      }
-
-      .brand span { color: var(--primary); }
-
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-
-      .nav-links a:hover { color: var(--text); }
-
-      .nav-cta {
-        padding: 0.7rem 1.1rem;
-        border-radius: 999px;
-        background: #111827;
-        color: white;
-        font-weight: 600;
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 2.5rem;
-        align-items: center;
-        padding: 5rem 0 3rem;
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        padding: 0.5rem 0.9rem;
-        border-radius: 999px;
-        background: rgba(79, 70, 229, 0.1);
-        color: var(--primary-dark);
-        font-size: 0.76rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      h1 {
-        margin: 1rem 0 0.8rem;
-        font-size: clamp(2.9rem, 6vw, 5.2rem);
-        line-height: 0.94;
-        letter-spacing: -0.07em;
-      }
-
-      .lead {
-        margin: 0;
-        color: var(--muted);
-        font-size: clamp(1.05rem, 2vw, 1.35rem);
-        font-weight: 500;
-      }
-
-      .intro {
-        margin: 1.2rem 0 0;
-        max-width: 60ch;
-        color: var(--muted);
-        font-size: 1.05rem;
-      }
-
-      .cta-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-top: 2rem;
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.9rem 1.4rem;
-        border-radius: 999px;
-        font-weight: 700;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .btn:hover {
-        transform: translateY(-2px);
-      }
-
-      .btn-primary {
-        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-        color: #fff;
-        box-shadow: 0 18px 30px rgba(79, 70, 229, 0.2);
-      }
-
-      .btn-secondary {
-        background: rgba(255, 255, 255, 0.7);
-        border: 1px solid var(--line);
-        color: var(--text);
-      }
-
-      .stats {
-        list-style: none;
-        padding: 0;
-        margin: 2rem 0 0;
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-      }
-
-      .stats li {
-        min-width: 140px;
-        padding: 1rem 1rem 0.8rem;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.68);
-        border: 1px solid var(--line);
-      }
-
-      .stats strong {
-        display: block;
-        font-size: 1.2rem;
-        letter-spacing: -0.05em;
-      }
-
-      .stats span {
-        color: var(--muted);
-        font-size: 0.8rem;
-      }
-
-      .profile-card {
-        padding: 1.5rem;
-        border-radius: 30px;
-        background: rgba(255, 255, 255, 0.7);
-        border: 1px solid rgba(17, 24, 39, 0.06);
-        box-shadow: var(--shadow);
-      }
-
-      .badge {
-        display: inline-flex;
-        padding: 0.45rem 0.7rem;
-        background: rgba(34,197,94,0.12);
-        color: #15803d;
-        border-radius: 999px;
-        font-size: 0.72rem;
-        font-weight: 700;
-      }
-
-      .avatar {
-        width: 124px;
-        height: 124px;
-        display: grid;
-        place-items: center;
-        margin: 1.2rem 0 1rem;
-        border-radius: 28px;
-        font-size: 2.7rem;
-        font-weight: 800;
-        letter-spacing: -0.08em;
-        color: var(--primary-dark);
-        background: linear-gradient(135deg, rgba(79,70,229,0.14), rgba(34,197,94,0.12));
-      }
-
-      .mini-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1rem;
-      }
-
-      .mini-grid div {
-        padding: 1rem;
-        border-radius: 16px;
-        background: rgba(244,247,251,0.9);
-        border: 1px solid rgba(15,23,42,0.05);
-      }
-
-      .mini-grid span {
-        display: block;
-        margin-bottom: 0.35rem;
-        color: var(--muted);
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      section { padding: 2rem 0; }
-
-      .section-title {
-        margin: 0 0 0.4rem;
-        font-size: clamp(2rem, 4vw, 2.8rem);
-        letter-spacing: -0.06em;
-      }
-
-      .section-subtitle {
-        margin: 0;
-        color: var(--muted);
-      }
-
-      .about-wrap {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 1.5rem;
-        margin-top: 1.5rem;
-      }
-
-      .card {
-        background: rgba(255,255,255,0.74);
-        border: 1px solid var(--line);
-        border-radius: 24px;
-        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.04);
-      }
-
-      .card.about {
-        padding: 2rem;
-      }
-
-      .card.about p {
-        color: var(--muted);
-        margin: 0 0 1rem;
-      }
-
-      .card.about p:last-child { margin-bottom: 0; }
-
-      .card.side {
-        padding: 1.4rem 1.4rem 0.7rem;
-      }
-
-      .detail-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      .detail-list li {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 0.9rem 0;
-        border-bottom: 1px solid var(--line);
-        color: var(--muted);
-      }
-
-      .detail-list li:last-child { border-bottom: none; }
-
-      .detail-list strong { color: var(--text); }
-
-      .chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.8rem;
-        margin-top: 1.6rem;
-      }
-
-      .chips span {
-        padding: 0.72rem 1rem;
-        border-radius: 999px;
-        background: rgba(79,70,229,0.08);
-        color: var(--primary-dark);
-        border: 1px solid rgba(79,70,229,0.08);
-        font-weight: 600;
-      }
-
-      .projects {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1.4rem;
-        margin-top: 1.6rem;
-      }
-
-      .project-card {
-        padding: 1.5rem;
-        background: rgba(255,255,255,0.74);
-        border: 1px solid var(--line);
-        border-radius: 24px;
-      }
-
-      .tag {
-        display: inline-flex;
-        padding: 0.42rem 0.7rem;
-        border-radius: 999px;
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        background: rgba(34,197,94,0.12);
-        color: #166534;
-      }
-
-      .project-card h3 {
-        margin: 1rem 0 0.7rem;
-        font-size: 1.5rem;
-        letter-spacing: -0.05em;
-      }
-
-      .project-card p {
-        margin: 0 0 1rem;
-        color: var(--muted);
-      }
-
-      .project-card a {
-        color: var(--primary);
-        font-weight: 700;
-      }
-
-      .cta-panel {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 2rem;
-        margin: 2rem 0 4rem;
-        border-radius: 28px;
-        background: linear-gradient(135deg, rgba(79,70,229,0.08), rgba(34,197,94,0.08));
-        border: 1px solid var(--line);
-      }
-
-      .cta-panel h2 {
-        margin: 0;
-        font-size: clamp(1.5rem, 3vw, 2.2rem);
-        letter-spacing: -0.05em;
-      }
-
-      footer {
-        text-align: center;
-        color: var(--muted);
-        padding: 0 0 2rem;
-      }
-
-      @media (max-width: 860px) {
-        .hero,
-        .about-wrap,
-        .projects {
-          grid-template-columns: 1fr;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .nav {
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 0.7rem 1rem;
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+            background: #020617;
+            color: #e2e8f0;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           Scroll Progress
+        ========================= */
+
+        #progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: #38bdf8;
+            z-index: 9999;
+        }
+
+        /* =========================
+           Background
+        ========================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            z-index: -3;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(56, 189, 248, 0.08),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 80% 80%,
+                    rgba(99, 102, 241, 0.08),
+                    transparent 35%
+                ),
+                #020617;
+        }
+
+        .glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.12;
+            animation: floatGlow 12s ease-in-out infinite;
+        }
+
+        .glow.one {
+            background: #38bdf8;
+            top: -150px;
+            left: -150px;
+        }
+
+        .glow.two {
+            background: #6366f1;
+            bottom: -150px;
+            right: -150px;
+            animation-delay: -6s;
+        }
+
+        @keyframes floatGlow {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(80px, 40px) scale(1.15);
+            }
+        }
+
+        /* Mouse glow */
+
+        .mouse-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(56, 189, 248, 0.08),
+                transparent 70%
+            );
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        /* =========================
+           Particles
+        ========================= */
+
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(148, 163, 184, 0.5);
+            border-radius: 50%;
+            animation: particleFloat linear infinite;
+        }
+
+        @keyframes particleFloat {
+            from {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(-20vh);
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+           Navigation
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            z-index: 1000;
+
+            background: rgba(2, 6, 23, 0.55);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+
+            transition: 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(2, 6, 23, 0.9);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #f8fafc;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 28px;
         }
 
         .nav-links {
-          flex-wrap: wrap;
-          justify-content: center;
+            display: flex;
+            gap: 25px;
         }
-      }
 
-      @media (max-width: 560px) {
-        .hero { padding-top: 4rem; }
-        .cta-row, .stats { flex-direction: column; }
-        .btn { width: 100%; }
-        .cta-panel { flex-direction: column; align-items: flex-start; }
-      }
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        /* Language */
+
+        .language-switch {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .lang-btn {
+            border: none;
+            background: transparent;
+            color: #94a3b8;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 4px 2px;
+            transition: 0.25s ease;
+        }
+
+        .lang-btn:hover {
+            color: #38bdf8;
+        }
+
+        .lang-btn.active {
+            color: #38bdf8;
+        }
+
+        /* =========================
+           Language
+        ========================= */
+
+        .lang-cn {
+            display: none;
+        }
+
+        body.cn .lang-en {
+            display: none;
+        }
+
+        body.cn .lang-cn {
+            display: inline;
+        }
+
+        /* =========================
+           Container
+        ========================= */
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        /* =========================
+           Hero
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: heroEnter 1s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes heroEnter {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-label {
+            display: inline-block;
+            margin-bottom: 18px;
+            padding: 6px 12px;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 20px;
+            color: #38bdf8;
+            font-size: 13px;
+            background: rgba(56, 189, 248, 0.05);
+        }
+
+        h1 {
+            font-size: clamp(48px, 8vw, 90px);
+            line-height: 1.05;
+            letter-spacing: -3px;
+            color: #f8fafc;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: #38bdf8;
+        }
+
+        .hero-description {
+            max-width: 700px;
+            color: #94a3b8;
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .typing {
+            color: #38bdf8;
+            font-weight: 600;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 20px;
+            background: #38bdf8;
+            margin-left: 3px;
+            vertical-align: middle;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.25s ease;
+        }
+
+        .btn-primary {
+            background: #38bdf8;
+            color: #020617;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+        }
+
+        .btn-secondary {
+            border: 1px solid #334155;
+            color: #cbd5e1;
+        }
+
+        .btn-secondary:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           Sections
+        ========================= */
+
+        section {
+            padding: 120px 0;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: #f8fafc;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            color: #64748b;
+            margin-bottom: 45px;
+        }
+
+        /* =========================
+           Cards
+        ========================= */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            padding: 28px;
+            background: rgba(15, 23, 42, 0.65);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 14px;
+
+            transition:
+                transform 0.2s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+
+            transform-style: preserve-3d;
+        }
+
+        .card:hover {
+            border-color: rgba(56, 189, 248, 0.35);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            color: #f8fafc;
+            margin-bottom: 10px;
+            font-size: 19px;
+        }
+
+        .card p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .icon {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        /* =========================
+           Projects
+        ========================= */
+
+        .projects {
+            display: grid;
+            gap: 20px;
+        }
+
+        .project {
+            padding: 28px;
+            background: rgba(15, 23, 42, 0.55);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 14px;
+            transition: 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateX(8px);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .project h3 {
+            color: #f8fafc;
+            margin-bottom: 8px;
+        }
+
+        .project p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .tag {
+            display: inline-block;
+            margin-top: 15px;
+            margin-right: 6px;
+            padding: 4px 9px;
+            font-size: 12px;
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.08);
+            border-radius: 5px;
+        }
+
+        /* =========================
+           Education
+        ========================= */
+
+        .education {
+            padding: 28px;
+            border-left: 2px solid #38bdf8;
+            background: rgba(15, 23, 42, 0.45);
+        }
+
+        .education h3 {
+            color: #f8fafc;
+            margin-bottom: 5px;
+        }
+
+        .education p {
+            color: #94a3b8;
+        }
+
+        /* =========================
+           Contact
+        ========================= */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        /* =========================
+           Footer
+        ========================= */
+
+        footer {
+            padding: 35px 0;
+            text-align: center;
+            border-top: 1px solid rgba(148, 163, 184, 0.08);
+            color: #475569;
+            font-size: 13px;
+        }
+
+        /* =========================
+           Scroll Reveal
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           Language transition
+        ========================= */
+
+        .language-changing {
+            animation: languageFade 0.25s ease;
+        }
+
+        @keyframes languageFade {
+            0% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* =========================
+           Mobile
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-right {
+                margin-left: auto;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 90px 0;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .language-switch {
+                margin-left: 10px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <header class="topbar">
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#home" class="brand">Richy <span>Zheng</span></a>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact" class="nav-cta">Contact</a>
-        </div>
-      </nav>
-    </header>
+</head>
 
-    <main class="container">
-      <section id="home" class="hero">
-        <div>
-          <div class="eyebrow">Portfolio</div>
-          <h1>Richy Zheng</h1>
-          <p class="lead">Creative developer crafting elegant digital experiences.</p>
-          <p class="intro">
-            I build modern, user-focused websites that combine clean design,
-            thoughtful structure, and smooth interactions. My goal is to turn ideas
-            into experiences people remember.
-          </p>
+<body>
 
-          <div class="cta-row">
-            <a href="#projects" class="btn btn-primary">View Projects</a>
-            <a href="#contact" class="btn btn-secondary">Let’s Talk</a>
-          </div>
+    <!-- Scroll progress -->
+    <div id="progress"></div>
 
-          <ul class="stats" aria-label="Quick stats">
-            <li>
-              <strong>2+</strong>
-              <span>Years learning</span>
-            </li>
-            <li>
-              <strong>10+</strong>
-              <span>Projects explored</span>
-            </li>
-            <li>
-              <strong>100%</strong>
-              <span>Curiosity-driven</span>
-            </li>
-          </ul>
-        </div>
+    <!-- Background -->
+    <div class="background">
+        <div class="glow one"></div>
+        <div class="glow two"></div>
+    </div>
 
-        <div class="profile-card" aria-label="Profile summary">
-          <div class="badge">Available for work</div>
-          <div class="avatar">RZ</div>
-          <div class="mini-grid">
-            <div>
-              <span>Focus</span>
-              <strong>Web Design</strong>
+    <!-- Mouse glow -->
+    <div class="mouse-glow"></div>
+
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
+
+
+    <!-- =========================
+         Navigation
+    ========================== -->
+
+    <nav id="navbar">
+
+        <a href="#home" class="logo">
+            <span>AI</span> Portfolio
+        </a>
+
+        <div class="nav-right">
+
+            <div class="nav-links">
+
+                <a href="#about">
+                    <span class="lang-en">About</span>
+                    <span class="lang-cn">关于</span>
+                </a>
+
+                <a href="#interests">
+                    <span class="lang-en">Interests</span>
+                    <span class="lang-cn">兴趣</span>
+                </a>
+
+                <a href="#projects">
+                    <span class="lang-en">Projects</span>
+                    <span class="lang-cn">项目</span>
+                </a>
+
+                <a href="#education">
+                    <span class="lang-en">Education</span>
+                    <span class="lang-cn">教育</span>
+                </a>
+
+                <a href="#contact">
+                    <span class="lang-en">Contact</span>
+                    <span class="lang-cn">联系</span>
+                </a>
+
             </div>
-            <div>
-              <span>Skills</span>
-              <strong>HTML / CSS</strong>
+
+
+            <div class="language-switch">
+
+                <button id="enBtn" class="lang-btn active">
+                    EN
+                </button>
+
+                <span>/</span>
+
+                <button id="cnBtn" class="lang-btn">
+                    中文
+                </button>
+
             </div>
-            <div>
-              <span>Style</span>
-              <strong>Modern</strong>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         Hero
+    ========================== -->
+
+    <section class="hero" id="home">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="hero-label">
+
+                    <span class="lang-en">
+                        AI & Computer Vision
+                    </span>
+
+                    <span class="lang-cn">
+                        人工智能 & 计算机视觉
+                    </span>
+
+                </div>
+
+
+                <h1>
+
+                    <span class="lang-en">
+                        Hi, I'm <span>Your Name.</span>
+                    </span>
+
+                    <span class="lang-cn">
+                        你好，我是 <span>Your Name.</span>
+                    </span>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    <span class="lang-en">
+
+                        I'm interested in
+                        <span class="typing" id="typing"></span>
+                        <span class="cursor"></span>
+                        and enjoy turning ideas into practical projects.
+
+                    </span>
+
+
+                    <span class="lang-cn">
+
+                        我对
+                        <span class="typing" id="typing-cn"></span>
+                        <span class="cursor"></span>
+                        感兴趣，喜欢将想法转化为实际项目。
+
+                    </span>
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="#projects" class="btn btn-primary">
+
+                        <span class="lang-en">
+                            View Projects
+                        </span>
+
+                        <span class="lang-cn">
+                            查看项目
+                        </span>
+
+                    </a>
+
+
+                    <a href="#contact" class="btn btn-secondary">
+
+                        <span class="lang-en">
+                            Contact Me
+                        </span>
+
+                        <span class="lang-cn">
+                            联系我
+                        </span>
+
+                    </a>
+
+                </div>
+
             </div>
-            <div>
-              <span>Approach</span>
-              <strong>Clean &amp; Clear</strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         About
+    ========================== -->
+
+    <section id="about">
+
+        <div class="container reveal">
+
+            <h2 class="section-title">
+
+                <span class="lang-en">
+                    About
+                </span>
+
+                <span class="lang-cn">
+                    关于我
+                </span>
+
+            </h2>
+
+
+            <p class="section-subtitle">
+
+                <span class="lang-en">
+                    A little about me
+                </span>
+
+                <span class="lang-cn">
+                    关于我的一些介绍
+                </span>
+
+            </p>
+
+
+            <div class="card">
+
+                <p>
+
+                    <span class="lang-en">
+
+                        I am passionate about artificial intelligence,
+                        computer vision, and practical engineering.
+                        I enjoy exploring new technologies and building
+                        systems that connect research with real-world applications.
+
+                    </span>
+
+
+                    <span class="lang-cn">
+
+                        我对人工智能、计算机视觉以及实际工程应用充满兴趣。
+                        我喜欢探索新的技术，并尝试将研究成果与实际应用结合，
+                        构建真正能够解决问题的系统。
+
+                    </span>
+
+                </p>
+
             </div>
-          </div>
+
         </div>
-      </section>
 
-      <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">Making ideas clear, practical, and visually engaging.</p>
+    </section>
 
-        <div class="about-wrap">
-          <div class="card about">
-            <p>
-              I’m a web-focused creator passionate about building polished digital
-              experiences that feel easy to use and visually strong. I enjoy turning
-              simple ideas into refined, modern interfaces.
-            </p>
-            <p>
-              My approach is grounded in clarity, responsiveness, and thoughtful design.
-              I care about details that improve how a website feels and communicates,
-              not just how it looks.
-            </p>
-          </div>
 
-          <aside class="card side">
-            <ul class="detail-list">
-              <li><span>Location</span><strong>Remote</strong></li>
-              <li><span>Role</span><strong>Frontend</strong></li>
-              <li><span>Interests</span><strong>Design, UX, Code</strong></li>
-              <li><span>Email</span><strong>hello@richyzheng.dev</strong></li>
-            </ul>
-          </aside>
+    <!-- =========================
+         Interests
+    ========================== -->
+
+    <section id="interests">
+
+        <div class="container">
+
+            <div class="reveal">
+
+                <h2 class="section-title">
+
+                    <span class="lang-en">
+                        Interests
+                    </span>
+
+                    <span class="lang-cn">
+                        兴趣方向
+                    </span>
+
+                </h2>
+
+
+                <p class="section-subtitle">
+
+                    <span class="lang-en">
+                        Areas I enjoy exploring
+                    </span>
+
+                    <span class="lang-cn">
+                        我感兴趣的技术方向
+                    </span>
+
+                </p>
+
+            </div>
+
+
+            <div class="grid">
+
+                <div class="card reveal">
+
+                    <div class="icon">
+                        🤖
+                    </div>
+
+                    <h3>
+
+                        <span class="lang-en">
+                            Artificial Intelligence
+                        </span>
+
+                        <span class="lang-cn">
+                            人工智能
+                        </span>
+
+                    </h3>
+
+                    <p>
+
+                        <span class="lang-en">
+                            Deep learning, neural networks,
+                            model training and intelligent systems.
+                        </span>
+
+                        <span class="lang-cn">
+                            深度学习、神经网络、模型训练以及智能系统。
+                        </span>
+
+                    </p>
+
+                </div>
+
+
+                <div class="card reveal">
+
+                    <div class="icon">
+                        👁️
+                    </div>
+
+                    <h3>
+
+                        <span class="lang-en">
+                            Computer Vision
+                        </span>
+
+                        <span class="lang-cn">
+                            计算机视觉
+                        </span>
+
+                    </h3>
+
+                    <p>
+
+                        <span class="lang-en">
+                            Image processing, object detection,
+                            segmentation and industrial vision.
+                        </span>
+
+                        <span class="lang-cn">
+                            图像处理、目标检测、图像分割以及工业视觉。
+                        </span>
+
+                    </p>
+
+                </div>
+
+
+                <div class="card reveal">
+
+                    <div class="icon">
+                        💻
+                    </div>
+
+                    <h3>
+
+                        <span class="lang-en">
+                            Software Development
+                        </span>
+
+                        <span class="lang-cn">
+                            软件开发
+                        </span>
+
+                    </h3>
+
+                    <p>
+
+                        <span class="lang-en">
+                            Building practical applications with
+                            Python, C++, C# and modern tools.
+                        </span>
+
+                        <span class="lang-cn">
+                            使用 Python、C++、C# 以及现代开发工具构建实际应用。
+                        </span>
+
+                    </p>
+
+                </div>
+
+            </div>
+
         </div>
-      </section>
 
-      <section id="skills">
-        <h2 class="section-title">Skills</h2>
-        <p class="section-subtitle">Tools and strengths I bring to each project.</p>
+    </section>
 
-        <div class="chips" aria-label="Skill list">
-          <span>HTML5</span>
-          <span>CSS3</span>
-          <span>JavaScript</span>
-          <span>Responsive Design</span>
-          <span>UI/UX</span>
-          <span>Accessibility</span>
-          <span>Branding</span>
-          <span>Performance</span>
+
+    <!-- =========================
+         Projects
+    ========================== -->
+
+    <section id="projects">
+
+        <div class="container">
+
+            <div class="reveal">
+
+                <h2 class="section-title">
+
+                    <span class="lang-en">
+                        Projects
+                    </span>
+
+                    <span class="lang-cn">
+                        项目
+                    </span>
+
+                </h2>
+
+
+                <p class="section-subtitle">
+
+                    <span class="lang-en">
+                        Selected things I've worked on
+                    </span>
+
+                    <span class="lang-cn">
+                        一些个人项目和实践
+                    </span>
+
+                </p>
+
+            </div>
+
+
+            <div class="projects">
+
+
+                <div class="project reveal">
+
+                    <h3>
+
+                        <span class="lang-en">
+                            Industrial Vision Inspection
+                        </span>
+
+                        <span class="lang-cn">
+                            工业视觉检测
+                        </span>
+
+                    </h3>
+
+
+                    <p>
+
+                        <span class="lang-en">
+                            Computer vision systems for industrial
+                            inspection and automated defect detection.
+                        </span>
+
+                        <span class="lang-cn">
+                            面向工业场景的计算机视觉检测系统，
+                            用于自动化缺陷检测和质量控制。
+                        </span>
+
+                    </p>
+
+
+                    <span class="tag">
+                        HALCON
+                    </span>
+
+                    <span class="tag">
+                        Computer Vision
+                    </span>
+
+                    <span class="tag">
+                        Deep Learning
+                    </span>
+
+                </div>
+
+
+                <div class="project reveal">
+
+                    <h3>
+
+                        <span class="lang-en">
+                            Deep Learning Research
+                        </span>
+
+                        <span class="lang-cn">
+                            深度学习研究
+                        </span>
+
+                    </h3>
+
+
+                    <p>
+
+                        <span class="lang-en">
+                            Experiments involving image classification,
+                            object detection, segmentation and model optimization.
+                        </span>
+
+                        <span class="lang-cn">
+                            涉及图像分类、目标检测、图像分割以及模型优化等方向的研究与实践。
+                        </span>
+
+                    </p>
+
+
+                    <span class="tag">
+                        PyTorch
+                    </span>
+
+                    <span class="tag">
+                        OpenCV
+                    </span>
+
+                    <span class="tag">
+                        Deep Learning
+                    </span>
+
+                </div>
+
+
+                <div class="project reveal">
+
+                    <h3>
+
+                        <span class="lang-en">
+                            3D Vision
+                        </span>
+
+                        <span class="lang-cn">
+                            3D 视觉
+                        </span>
+
+                    </h3>
+
+
+                    <p>
+
+                        <span class="lang-en">
+                            Exploring 3D point clouds, height maps,
+                            surface analysis and industrial 3D inspection.
+                        </span>
+
+                        <span class="lang-cn">
+                            探索三维点云、高度图、表面分析以及工业 3D 缺陷检测。
+                        </span>
+
+                    </p>
+
+
+                    <span class="tag">
+                        3D Vision
+                    </span>
+
+                    <span class="tag">
+                        Point Cloud
+                    </span>
+
+                    <span class="tag">
+                        HALCON
+                    </span>
+
+                </div>
+
+
+            </div>
+
         </div>
-      </section>
 
-      <section id="projects">
-        <h2 class="section-title">Featured Work</h2>
-        <p class="section-subtitle">Selected ideas designed to look clean and work smoothly.</p>
+    </section>
 
-        <div class="projects">
-          <article class="project-card">
-            <div class="tag">Portfolio</div>
-            <h3>Personal Brand Website</h3>
-            <p>
-              A refined personal site focused on clarity, strong typography, and a premium first impression.
+
+    <!-- =========================
+         Education
+    ========================== -->
+
+    <section id="education">
+
+        <div class="container reveal">
+
+            <h2 class="section-title">
+
+                <span class="lang-en">
+                    Education
+                </span>
+
+                <span class="lang-cn">
+                    教育经历
+                </span>
+
+            </h2>
+
+
+            <p class="section-subtitle">
+
+                <span class="lang-en">
+                    Academic background
+                </span>
+
+                <span class="lang-cn">
+                    学术背景
+                </span>
+
             </p>
-            <a href="#home">Learn more →</a>
-          </article>
 
-          <article class="project-card">
-            <div class="tag">Landing Page</div>
-            <h3>Launch Campaign</h3>
-            <p>
-              A polished marketing page built for conversion with structured sections and modern visual rhythm.
-            </p>
-            <a href="#contact">Discuss a project →</a>
-          </article>
 
-          <article class="project-card">
-            <div class="tag">Creative</div>
-            <h3>Storytelling Design</h3>
-            <p>
-              Visual compositions that combine layout, narrative, and interaction to bring content to life.
-            </p>
-            <a href="#about">See my approach →</a>
-          </article>
+            <div class="education">
+
+                <h3>
+
+                    <span class="lang-en">
+                        Artificial Intelligence
+                    </span>
+
+                    <span class="lang-cn">
+                        人工智能
+                    </span>
+
+                </h3>
+
+
+                <p>
+
+                    <span class="lang-en">
+                        University of Electronic Science and Technology of China,
+                        Zhongshan Institute
+                    </span>
+
+                    <span class="lang-cn">
+                        电子科技大学中山学院
+                    </span>
+
+                </p>
+
+            </div>
+
         </div>
-      </section>
 
-      <section id="contact">
-        <div class="cta-panel">
-          <h2>Let’s build something meaningful together.</h2>
-          <a href="mailto:hello@richyzheng.dev" class="btn btn-primary">Email Me</a>
+    </section>
+
+
+    <!-- =========================
+         Contact
+    ========================== -->
+
+    <section id="contact">
+
+        <div class="container contact reveal">
+
+            <h2 class="section-title">
+
+                <span class="lang-en">
+                    Contact
+                </span>
+
+                <span class="lang-cn">
+                    联系我
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                <span class="lang-en">
+                    Interested in connecting or working together?
+                </span>
+
+                <span class="lang-cn">
+                    如果你想交流技术或合作，欢迎联系我。
+                </span>
+
+            </p>
+
+
+            <a
+                href="mailto:your-email@example.com"
+                class="btn btn-primary"
+            >
+
+                <span class="lang-en">
+                    Send Email
+                </span>
+
+                <span class="lang-cn">
+                    发送邮件
+                </span>
+
+            </a>
+
         </div>
-      </section>
-    </main>
 
-    <footer>© <span id="year"></span> Richy Zheng</footer>
+    </section>
+
+
+    <!-- =========================
+         Footer
+    ========================== -->
+
+    <footer>
+
+        <span class="lang-en">
+            © 2026 Your Name. Built with HTML, CSS & JavaScript.
+        </span>
+
+        <span class="lang-cn">
+            © 2026 Your Name. 使用 HTML、CSS 和 JavaScript 构建。
+        </span>
+
+    </footer>
+
+
+    <!-- =========================
+         JavaScript
+    ========================== -->
 
     <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
+
+        /* =====================================
+           Language Switch
+        ===================================== */
+
+        const enBtn = document.getElementById("enBtn");
+        const cnBtn = document.getElementById("cnBtn");
+
+        function setLanguage(language) {
+
+            document.body.classList.add("language-changing");
+
+            setTimeout(() => {
+                document.body.classList.remove("language-changing");
+            }, 250);
+
+
+            if (language === "cn") {
+
+                document.body.classList.add("cn");
+
+                enBtn.classList.remove("active");
+                cnBtn.classList.add("active");
+
+                document.documentElement.lang = "zh-CN";
+
+                localStorage.setItem("language", "cn");
+
+                currentLanguage = "cn";
+
+                resetTyping();
+
+            } else {
+
+                document.body.classList.remove("cn");
+
+                cnBtn.classList.remove("active");
+                enBtn.classList.add("active");
+
+                document.documentElement.lang = "en";
+
+                localStorage.setItem("language", "en");
+
+                currentLanguage = "en";
+
+                resetTyping();
+            }
+
+        }
+
+
+        enBtn.addEventListener("click", () => {
+            setLanguage("en");
+        });
+
+
+        cnBtn.addEventListener("click", () => {
+            setLanguage("cn");
+        });
+
+
+        /* Load saved language */
+
+        let savedLanguage = localStorage.getItem("language");
+
+        if (savedLanguage === "cn") {
+            setLanguage("cn");
+        } else {
+            setLanguage("en");
+        }
+
+
+        /* =====================================
+           Typing Animation
+        ===================================== */
+
+        const englishWords = [
+            "Artificial Intelligence",
+            "Computer Vision",
+            "Machine Learning",
+            "Software Development"
+        ];
+
+        const chineseWords = [
+            "人工智能",
+            "计算机视觉",
+            "机器学习",
+            "软件开发"
+        ];
+
+
+        let currentLanguage = savedLanguage === "cn" ? "cn" : "en";
+
+        let wordIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+
+        function resetTyping() {
+
+            wordIndex = 0;
+            charIndex = 0;
+            deleting = false;
+
+            document.getElementById("typing").textContent = "";
+            document.getElementById("typing-cn").textContent = "";
+        }
+
+
+        function typeEffect() {
+
+            const words =
+                currentLanguage === "cn"
+                    ? chineseWords
+                    : englishWords;
+
+            const englishElement =
+                document.getElementById("typing");
+
+            const chineseElement =
+                document.getElementById("typing-cn");
+
+
+            const currentWord = words[wordIndex];
+
+
+            if (currentLanguage === "en") {
+
+                if (!deleting) {
+
+                    englishElement.textContent =
+                        currentWord.substring(0, charIndex + 1);
+
+                    charIndex++;
+
+                    if (charIndex === currentWord.length) {
+
+                        deleting = true;
+
+                        setTimeout(typeEffect, 1500);
+
+                        return;
+                    }
+
+                } else {
+
+                    englishElement.textContent =
+                        currentWord.substring(0, charIndex - 1);
+
+                    charIndex--;
+
+                    if (charIndex === 0) {
+
+                        deleting = false;
+
+                        wordIndex =
+                            (wordIndex + 1) % words.length;
+                    }
+
+                }
+
+            } else {
+
+                if (!deleting) {
+
+                    chineseElement.textContent =
+                        currentWord.substring(0, charIndex + 1);
+
+                    charIndex++;
+
+                    if (charIndex === currentWord.length) {
+
+                        deleting = true;
+
+                        setTimeout(typeEffect, 1500);
+
+                        return;
+                    }
+
+                } else {
+
+                    chineseElement.textContent =
+                        currentWord.substring(0, charIndex - 1);
+
+                    charIndex--;
+
+                    if (charIndex === 0) {
+
+                        deleting = false;
+
+                        wordIndex =
+                            (wordIndex + 1) % words.length;
+                    }
+
+                }
+
+            }
+
+
+            setTimeout(
+                typeEffect,
+                deleting ? 50 : 100
+            );
+        }
+
+
+        typeEffect();
+
+
+        /* =====================================
+           Scroll Reveal
+        ===================================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        const observer =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.15
+                }
+            );
+
+
+        revealElements.forEach(element => {
+            observer.observe(element);
+        });
+
+
+        /* =====================================
+           Scroll Progress
+        ===================================== */
+
+        window.addEventListener("scroll", () => {
+
+            const scrollTop =
+                window.scrollY;
+
+            const documentHeight =
+                document.documentElement.scrollHeight -
+                document.documentElement.clientHeight;
+
+            const progress =
+                (scrollTop / documentHeight) * 100;
+
+            document.getElementById("progress")
+                .style.width = progress + "%";
+
+
+            /* Navbar */
+
+            const navbar =
+                document.getElementById("navbar");
+
+            if (scrollTop > 50) {
+
+                navbar.classList.add("scrolled");
+
+            } else {
+
+                navbar.classList.remove("scrolled");
+
+            }
+
+        });
+
+
+        /* =====================================
+           Mouse Glow
+        ===================================== */
+
+        const mouseGlow =
+            document.querySelector(".mouse-glow");
+
+
+        document.addEventListener("mousemove", (event) => {
+
+            mouseGlow.style.left =
+                event.clientX + "px";
+
+            mouseGlow.style.top =
+                event.clientY + "px";
+
+        });
+
+
+        /* =====================================
+           3D Card Tilt
+        ===================================== */
+
+        const cards =
+            document.querySelectorAll(".card");
+
+
+        cards.forEach(card => {
+
+            card.addEventListener("mousemove", (event) => {
+
+                const rect =
+                    card.getBoundingClientRect();
+
+                const x =
+                    event.clientX - rect.left;
+
+                const y =
+                    event.clientY - rect.top;
+
+
+                const centerX =
+                    rect.width / 2;
+
+                const centerY =
+                    rect.height / 2;
+
+
+                const rotateX =
+                    (y - centerY) / 15;
+
+                const rotateY =
+                    (centerX - x) / 15;
+
+
+                card.style.transform =
+                    `perspective(800px)
+                     rotateX(${rotateX}deg)
+                     rotateY(${rotateY}deg)
+                     translateY(-5px)`;
+
+            });
+
+
+            card.addEventListener("mouseleave", () => {
+
+                card.style.transform =
+                    "perspective(800px) rotateX(0) rotateY(0)";
+
+            });
+
+        });
+
+
+        /* =====================================
+           Floating Particles
+        ===================================== */
+
+        const particleContainer =
+            document.getElementById("particles");
+
+
+        for (let i = 0; i < 45; i++) {
+
+            const particle =
+                document.createElement("div");
+
+            particle.className = "particle";
+
+
+            particle.style.left =
+                Math.random() * 100 + "%";
+
+
+            particle.style.animationDuration =
+                (8 + Math.random() * 15) + "s";
+
+
+            particle.style.animationDelay =
+                Math.random() * 10 + "s";
+
+
+            particle.style.opacity =
+                Math.random() * 0.6;
+
+
+            particleContainer.appendChild(particle);
+
+        }
+
     </script>
-  </body>
+
+</body>
 </html>
