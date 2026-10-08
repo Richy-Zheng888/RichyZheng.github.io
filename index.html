@@ -1,1 +1,643 @@
-<p>Hello, this is my page!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Richy Zheng's personal portfolio website showcasing projects, skills, and contact information."
+    />
+    <title>Richy Zheng | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f5f7fb;
+        --panel: rgba(255, 255, 255, 0.8);
+        --panel-strong: #ffffff;
+        --text: #1c2434;
+        --muted: #58657a;
+        --primary: #4f46e5;
+        --primary-strong: #3730a3;
+        --accent: #14b8a6;
+        --border: rgba(88, 101, 122, 0.12);
+        --shadow: 0 25px 60px rgba(31, 41, 55, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(79, 70, 229, 0.12), transparent 30%),
+          linear-gradient(180deg, #f8faff 0%, #eef3ff 100%);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(14px);
+        background: rgba(248, 250, 255, 0.75);
+        border-bottom: 1px solid rgba(88, 101, 122, 0.08);
+      }
+
+      .nav {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+      }
+
+      .brand {
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        font-size: 1.2rem;
+      }
+
+      .brand span {
+        color: var(--primary);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .nav-cta {
+        background: var(--text);
+        color: white;
+        padding: 0.68rem 1rem;
+        border-radius: 999px;
+        font-weight: 600;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .nav-cta:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 25px rgba(28, 36, 52, 0.18);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 2.5rem;
+        align-items: center;
+        padding: 5rem 0 4rem;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.38rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(79, 70, 229, 0.1);
+        color: var(--primary-strong);
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .hero h1 {
+        margin: 1rem 0 0.5rem;
+        font-size: clamp(2.7rem, 5vw, 5rem);
+        line-height: 0.95;
+        letter-spacing: -0.06em;
+      }
+
+      .hero h2 {
+        margin: 0;
+        font-size: clamp(1.3rem, 2vw, 2rem);
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .hero p {
+        margin: 1.5rem 0;
+        color: var(--muted);
+        max-width: 60ch;
+        font-size: 1.05rem;
+      }
+
+      .button-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        padding: 0.9rem 1.4rem;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn.primary {
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+        color: #fff;
+        box-shadow: 0 18px 30px rgba(79, 70, 229, 0.25);
+      }
+
+      .btn.secondary {
+        background: rgba(255, 255, 255, 0.62);
+        border: 1px solid var(--border);
+        color: var(--text);
+      }
+
+      .mini-stats {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+        padding: 0;
+        margin: 2rem 0 0;
+      }
+
+      .mini-stats li {
+        background: rgba(255, 255, 255, 0.55);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 0.9rem 1rem;
+        min-width: 140px;
+      }
+
+      .mini-stats strong {
+        display: block;
+        font-size: 1.15rem;
+      }
+
+      .mini-stats span {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .hero-card {
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(17, 24, 39, 0.06);
+        border-radius: 30px;
+        box-shadow: var(--shadow);
+        padding: 1.5rem;
+      }
+
+      .badge {
+        display: inline-flex;
+        padding: 0.5rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(20, 184, 166, 0.12);
+        color: #0f766e;
+        font-weight: 700;
+        font-size: 0.74rem;
+      }
+
+      .avatar {
+        width: 120px;
+        height: 120px;
+        display: grid;
+        place-items: center;
+        border-radius: 28px;
+        margin: 1.5rem 0 1.2rem;
+        font-size: 2.5rem;
+        font-weight: 800;
+        letter-spacing: -0.08em;
+        background: linear-gradient(135deg, rgba(79, 70, 229, 0.15), rgba(20, 184, 166, 0.15));
+        color: var(--primary-strong);
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .card-grid div {
+        background: rgba(245, 247, 251, 0.9);
+        border: 1px solid rgba(88, 101, 122, 0.08);
+        border-radius: 18px;
+        padding: 1rem;
+      }
+
+      .card-grid span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 0.35rem;
+      }
+
+      .card-grid strong {
+        font-size: 1rem;
+      }
+
+      section {
+        padding: 2rem 0;
+      }
+
+      .section-header {
+        margin-bottom: 1.5rem;
+      }
+
+      .section-header p {
+        margin: 0.4rem 0 0;
+        color: var(--muted);
+      }
+
+      .section-header h3 {
+        margin: 0;
+        font-size: clamp(1.8rem, 3vw, 2.5rem);
+        letter-spacing: -0.05em;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 1.5rem;
+        align-items: stretch;
+      }
+
+      .about-panel,
+      .info-panel,
+      .project-card,
+      .cta-box {
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(88, 101, 122, 0.08);
+        border-radius: 24px;
+        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.04);
+      }
+
+      .about-panel {
+        padding: 2rem;
+      }
+
+      .about-panel p,
+      .info-panel li {
+        color: var(--muted);
+      }
+
+      .info-panel {
+        padding: 1.5rem 1.5rem 1rem;
+      }
+
+      .info-panel ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .info-panel li {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.9rem 0;
+        border-bottom: 1px solid rgba(88, 101, 122, 0.08);
+      }
+
+      .info-panel li:last-child {
+        border-bottom: none;
+      }
+
+      .info-panel strong {
+        color: var(--text);
+      }
+
+      .chip-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+        margin-top: 1.25rem;
+      }
+
+      .chip-list span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.7rem 1rem;
+        border-radius: 999px;
+        background: rgba(79, 70, 229, 0.08);
+        border: 1px solid rgba(79, 70, 229, 0.08);
+        color: var(--primary-strong);
+        font-weight: 600;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+      }
+
+      .project-card {
+        padding: 1.5rem;
+      }
+
+      .project-tag {
+        display: inline-block;
+        padding: 0.45rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(20, 184, 166, 0.12);
+        color: #0f766e;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .project-card h4 {
+        margin: 1rem 0 0.75rem;
+        font-size: 1.35rem;
+        letter-spacing: -0.04em;
+      }
+
+      .project-card p {
+        margin: 0 0 1.2rem;
+        color: var(--muted);
+      }
+
+      .project-card a {
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      .cta-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 2rem;
+        margin: 2rem 0 4rem;
+        background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(20, 184, 166, 0.08));
+      }
+
+      .cta-box h3 {
+        margin: 0;
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        letter-spacing: -0.05em;
+      }
+
+      footer {
+        text-align: center;
+        color: var(--muted);
+        padding: 0 0 2rem;
+      }
+
+      @media (max-width: 860px) {
+        .hero,
+        .two-col,
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 0.75rem 1rem;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .cta-box {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .hero {
+          padding-top: 4rem;
+        }
+
+        .button-row,
+        .mini-stats {
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#home" class="brand">Richy <span>Zheng</span></a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact" class="nav-cta">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section id="home" class="hero">
+        <div>
+          <div class="eyebrow">Hello, I'm</div>
+          <h1>Richy Zheng</h1>
+          <h2>Building thoughtful digital experiences.</h2>
+          <p>
+            I create clean, user-focused web experiences that combine design,
+            functionality, and performance. I enjoy turning ideas into polished,
+            accessible products that people genuinely enjoy using.
+          </p>
+
+          <div class="button-row">
+            <a href="#projects" class="btn primary">View Projects</a>
+            <a href="#contact" class="btn secondary">Get in Touch</a>
+          </div>
+
+          <ul class="mini-stats" aria-label="Quick stats">
+            <li>
+              <strong>2+</strong>
+              <span>Years building</span>
+            </li>
+            <li>
+              <strong>10+</strong>
+              <span>Projects shipped</span>
+            </li>
+            <li>
+              <strong>100%</strong>
+              <span>Curiosity-driven</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero-card" aria-label="Profile summary card">
+          <div class="badge">Available for work</div>
+          <div class="avatar">RZ</div>
+          <div class="card-grid">
+            <div>
+              <span>Focus</span>
+              <strong>Web Design</strong>
+            </div>
+            <div>
+              <span>Specialty</span>
+              <strong>UI / UX</strong>
+            </div>
+            <div>
+              <span>Tools</span>
+              <strong>HTML / CSS</strong>
+            </div>
+            <div>
+              <span>Mindset</span>
+              <strong>Detail-first</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="section-header">
+          <h3>About Me</h3>
+          <p>Turning ideas into meaningful online experiences.</p>
+        </div>
+
+        <div class="two-col">
+          <div class="about-panel">
+            <p>
+              I’m passionate about crafting modern, high-impact web experiences
+              that are simple, elegant, and easy to use. My work blends design
+              thinking with practical implementation to build pages that feel
+              polished from the first glance to the final interaction.
+            </p>
+            <p>
+              Whether I’m building a portfolio, a landing page, or a product
+              interface, I focus on clarity, responsiveness, and a strong visual
+              identity. I enjoy learning, iterating, and refining ideas until
+              they feel sharp and intentional.
+            </p>
+          </div>
+
+          <aside class="info-panel" aria-label="Profile details">
+            <ul>
+              <li><span>Location</span><strong>Worldwide</strong></li>
+              <li><span>Role</span><strong>Frontend Developer</strong></li>
+              <li><span>Interests</span><strong>Design, Code, UX</strong></li>
+              <li><span>Email</span><strong>hello@richyzheng.dev</strong></li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="section-header">
+          <h3>Skills</h3>
+          <p>Tools and strengths I bring to every project.</p>
+        </div>
+
+        <div class="chip-list" aria-label="Skill list">
+          <span>HTML5</span>
+          <span>CSS3</span>
+          <span>JavaScript</span>
+          <span>Responsive Design</span>
+          <span>UI/UX</span>
+          <span>Accessibility</span>
+          <span>Branding</span>
+          <span>Performance Optimization</span>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-header">
+          <h3>Featured Projects</h3>
+          <p>Selected work designed to be practical, clean, and memorable.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-tag">Portfolio</div>
+            <h4>Personal Brand Website</h4>
+            <p>
+              A polished personal site that focuses on clarity, strong typography,
+              and a professional first impression.
+            </p>
+            <a href="#home">Learn more →</a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-tag">Landing Page</div>
+            <h4>Product Launch</h4>
+            <p>
+              Conversion-focused layout with crisp messaging, structured sections,
+              and responsive behavior across devices.
+            </p>
+            <a href="#contact">Discuss a project →</a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-tag">Creative</div>
+            <h4>Visual Storytelling</h4>
+            <p>
+              Thoughtful composition, layered design, and polished interactions
+              that elevate content and engagement.
+            </p>
+            <a href="#about">Explore my approach →</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="cta-box">
+          <h3>Let’s build something meaningful together.</h3>
+          <a href="mailto:hello@richyzheng.dev" class="btn primary">Email Me</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>© <span id="year"></span> Richy Zheng</footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
